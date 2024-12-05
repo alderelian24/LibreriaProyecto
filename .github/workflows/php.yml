@@ -1,0 +1,45 @@
+name: CI Pruebas MVC
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_adminysql_PASSWORD: admin
+          MYSQL_DATABASE: prueba_bd
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.1
+        extensions: mysqli, pdo_mysql
+
+    - name: Install Composer Dependencies
+      run: composer install
+
+    - name: Set up Database
+      run: |
+        mysql -h 127.0.0.1 -P 3306 -uadminysql -padmin prueba_bd < Config/libreria.sql
+
+    - name: Run Tests
+      run: ./vendor/bin/phpunit
