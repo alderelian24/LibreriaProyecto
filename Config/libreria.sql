@@ -141,7 +141,6 @@ INSERT INTO `compras` (`id_compra`, `cliente_id`, `libro_id`, `sucursal_id`, `fe
 
 --
 -- Disparadores `compras`
-DELIMITER //
 
 DROP TRIGGER IF EXISTS transferir_compra_a_venta;
 
@@ -162,9 +161,8 @@ BEGIN
         NEW.fecha_compra, 
         NEW.cantidad
     );
-END //
+END
 
-DELIMITER ;
 
 
 -- --------------------------------------------------------
