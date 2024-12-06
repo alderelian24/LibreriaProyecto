@@ -1,6 +1,6 @@
 <?php
 require_once '../../Config/conexion.php'; // Clase de conexión
-require '../../Config/vendor/autoload.php'; // PhpSpreadsheet
+require '../vendor/autoload.php'; // PhpSpreadsheet
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
