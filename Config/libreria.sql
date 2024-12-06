@@ -143,7 +143,6 @@ INSERT INTO `compras` (`id_compra`, `cliente_id`, `libro_id`, `sucursal_id`, `fe
 -- Disparadores `compras`
 --
 DROP TRIGGER IF EXISTS `transferir_compra_a_venta`;
-DELIMITER $$
 CREATE TRIGGER `transferir_compra_a_venta` AFTER INSERT ON `compras` FOR EACH ROW BEGIN
     INSERT INTO ventas (
         cliente_id, 
@@ -160,8 +159,7 @@ CREATE TRIGGER `transferir_compra_a_venta` AFTER INSERT ON `compras` FOR EACH RO
         NEW.cantidad
     );
 END
-$$
-DELIMITER ;
+ ;
 
 -- --------------------------------------------------------
 
