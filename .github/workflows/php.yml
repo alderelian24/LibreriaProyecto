@@ -1,0 +1,67 @@
+name: Run PHPUnit Tests with Database
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0 # Usar la imagen oficial de MySQL
+        env:
+          MYSQL_ROOT_PASSWORD: localhost
+          MYSQL_DATABASE: prueba_bd
+          MYSQL_USER: adminysql
+          MYSQL_PASSWORD: admin
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+      # 1. Verificar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: mbstring, pdo, pdo_mysql, mysqli
+          coverage: none
+
+      # 3. Instalar dependencias
+      - name: Install Dependencies
+        run: composer install --prefer-dist
+
+      # 4. Esperar que el servicio MySQL esté listo
+      - name: Wait for MySQL
+        run: |
+          for i in {1..30}; do
+            if mysql -h 127.0.0.1 -P 3306 -u adminysql -padmin -e "SELECT 1;" &> /dev/null; then
+              echo "MySQL is ready!";
+              break;
+            fi
+            echo "Waiting for MySQL...";
+            sleep 1;
+          done
+
+      # 5. Poblar la base de datos con datos iniciales
+      - name: Set up Database Schema
+        run: |
+          mysql -h 127.0.0.1 -P 3306 -u adminysql -padmin prueba_bd < Config/libreria.sql
+
+      # 6. Ejecutar pruebas
+      - name: Run Tests
+        run: ./vendor/bin/phpunit --configuration phpunit.xml
