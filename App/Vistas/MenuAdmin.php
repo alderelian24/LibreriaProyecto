@@ -88,7 +88,7 @@ $nombre_usuario = htmlspecialchars($_SESSION['nombre_usuario']);
 			</div>
             <nav id="PiePag">
 				<a href="../../App/Modelos/modulo_salir.php" class="logout-link">Cerrar sesión</a>
-				<p id="copyright">© 2024 Libre Praesto. Todos los derechos reservados.</p>	
+				<p id="copyright">© 2024 Libre Praesto. Todos los derechos reservados. Creado por el G5</p>	
 			</nav>
 		</footer>
 
