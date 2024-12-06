@@ -146,7 +146,7 @@ INSERT INTO `compras` (`id_compra`, `cliente_id`, `libro_id`, `sucursal_id`, `fe
 DROP TRIGGER IF EXISTS `transferir_compra_a_venta`;
 
 -- Crea el trigger
-CREATE TRIGGER transferir_compra_a_venta AFTER INSERT ON compras
+CREATE TRIGGER 'transferir_compra_a_venta' AFTER INSERT ON 'compras'
 FOR EACH ROW 
 BEGIN
     INSERT INTO ventas (
