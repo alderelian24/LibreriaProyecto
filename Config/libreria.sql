@@ -142,9 +142,13 @@ INSERT INTO `compras` (`id_compra`, `cliente_id`, `libro_id`, `sucursal_id`, `fe
 --
 -- Disparadores `compras`
 --
+-- Elimina el trigger si ya existe
 DROP TRIGGER IF EXISTS `transferir_compra_a_venta`;
-CREATE DEFINER='adminysql'@'127.0.0.1' FUNCTION ... ;
-CREATE TRIGGER `transferir_compra_a_venta` AFTER INSERT ON `compras` FOR EACH ROW BEGIN
+
+-- Crea el trigger
+CREATE TRIGGER `transferir_compra_a_venta` AFTER INSERT ON `compras`
+FOR EACH ROW 
+BEGIN
     INSERT INTO ventas (
         cliente_id, 
         libro_id, 
@@ -159,8 +163,8 @@ CREATE TRIGGER `transferir_compra_a_venta` AFTER INSERT ON `compras` FOR EACH RO
         NEW.fecha_compra, 
         NEW.cantidad
     );
-END
- ;
+END;
+
 
 -- --------------------------------------------------------
 
