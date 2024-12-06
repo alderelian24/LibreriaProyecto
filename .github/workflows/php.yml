@@ -60,7 +60,7 @@ jobs:
       # 5. Poblar la base de datos con datos iniciales
       - name: Set up Database Schema
         run: |
-          mysql -h 127.0.0.1 -P 3306 -u adminysql -padmin prueba_bd < Config/libreria.sql
+          mysql -h localhost -P 3306 -u adminysql -padmin prueba_bd < Config/libreria.sql
 
       # 6. Ejecutar pruebas
       - name: Run Tests
