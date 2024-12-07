@@ -6,6 +6,37 @@ class Cliente {
         $this->dbHandler = $dbHandler;
     }
 
+    public function registrarCliente($datosCliente) {
+        try {
+            $query = "INSERT INTO clientes 
+                      (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cip, fecha_nacimiento, usuario, correo, contraseña, sucursal_id)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            $hashedPassword = password_hash($datosCliente['contrasena'], PASSWORD_DEFAULT);
+    
+            $this->dbHandler->executePreparedStatement(
+                $query,
+                'sssssssssi',
+                $datosCliente['primer_nombre'],
+                $datosCliente['segundo_nombre'],
+                $datosCliente['primer_apellido'],
+                $datosCliente['segundo_apellido'],
+                $datosCliente['cedula'],
+                $datosCliente['fecha_nacimiento'],
+                $datosCliente['usuario'],
+                $datosCliente['correo'],
+                $hashedPassword,
+                $datosCliente['sucursal']
+            );
+            
+            return true; // Registro exitoso
+        } catch (Exception $e) {
+            error_log("Error al registrar cliente: " . $e->getMessage());
+            return false; // Registro fallido
+        }
+    }
+    
+
     public function verificarCredenciales($nombreUsuario, $clave) {
         try {
             $query = "SELECT id_cliente, contraseña FROM clientes WHERE usuario = ?";

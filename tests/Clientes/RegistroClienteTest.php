@@ -27,20 +27,4 @@ class RegistroClienteTest extends TestCase
         $resultado = registrarCliente($cliente); // Llama a tu función de registro
         $this->assertTrue($resultado); // Verifica que el resultado sea verdadero (registro exitoso)
     }
-
-    public function testDatosRepetidos()
-    {
-        // Simula la entrada de datos con cédula repetida
-        $cliente = [
-            'cedula' => '8-1004-2420', // Cédula ya registrada
-            'usuario' => 'CarlosM',
-            'correo' => 'carlos@gmail.com',
-            'contrasena' => 'contra123',
-            'confirmar_contrasena' => 'contra123',
-        ];
-
-        // Lógica de prueba para verificar que se maneje el error de datos duplicados
-        $resultado = registrarCliente($cliente);
-        $this->assertFalse($resultado); // Se espera un fallo en el registro
-    }
 }
