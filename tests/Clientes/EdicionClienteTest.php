@@ -1,7 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-require_once 'LibreriaProyecto/App/Modelos/clase_cliente.php';
-require_once '../../Config/conexion.php';
+require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
 
 class EditarClienteTest extends TestCase
 {

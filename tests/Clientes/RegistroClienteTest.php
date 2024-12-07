@@ -1,6 +1,5 @@
 <?php
-require_once(LibreriaProyecto/App/Modelos/clase_cliente.php);
-namespace Tests\Clientes;
+require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
 
 use PHPUnit\Framework\TestCase;
 use App\Modelos\Cliente;
