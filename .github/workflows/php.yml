@@ -62,6 +62,10 @@ jobs:
         run: |
           mysql -h 127.0.0.1 -P 3306 -u adminysql -padmin prueba_bd
 
-      # 6. Ejecutar pruebas
+      # 6. Otorgar permisos de ejecución a PHPUnit
+      - name: Grant execute permissions to PHPUnit
+        run: chmod +x ./vendor/bin/phpunit
+
+      # 7. Ejecutar pruebas
       - name: Run Tests
         run: ./vendor/bin/phpunit --configuration phpunit.xml
