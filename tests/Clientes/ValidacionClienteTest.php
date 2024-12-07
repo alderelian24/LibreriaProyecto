@@ -2,7 +2,7 @@
 
 // Importar las clases necesarias
 require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
-require_once __DIR__ . '/../../App/Modelos/consulta_registroCliente.php';
+require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
 
 // Crear un objeto de la clase Cliente
 $cliente = new Cliente();
