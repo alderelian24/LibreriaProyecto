@@ -8,12 +8,12 @@ require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
 $cliente = new Cliente();
 
 // Definir los datos de prueba
-$nombre1 = 'Carlos';
-$nombre2 = 'Gabriel';
-$apellido1 = 'Martínez';
-$apellido2 = 'Moreno';
+$PrimerNom = 'Carlos';
+$SegundoNom = 'Gabriel';
+$PrimerApellido = 'Martínez';
+$SegundoApellido = 'Moreno';
 $cip = '8-1004-2420';
-$fechaNacimiento = '08-01-2002';
+$FechaNacimiento = '08-01-2002';
 $usuario = 'CarlosM';
 $correo = 'carlos@gmail.com';
 $contrasena = 'contra123';
@@ -22,12 +22,12 @@ $sucursal = 'Este';
 
 // Intentar registrar el cliente
 $resultado = registrarCliente(
-    $nombre1,
-    $nombre2,
-    $apellido1,
-    $apellido2,
+    $PrimerNom,
+    $SegundoNom,
+    $PrimerApellido,
+    $SegundoApellido,
     $cedula,
-    $fechaNacimiento,
+    $FechaNacimiento,
     $usuario,
     $correo,
     $cip,
