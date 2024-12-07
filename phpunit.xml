@@ -1,7 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./tests</directory> <!-- Asegúrate de que esté apuntando a la carpeta correcta -->
+        <testsuite name="Cliente Registration Test Suite">
+            <!-- Incluir específicamente los archivos de prueba -->
+            <file>./tests/Clientes/RegistroClienteTest.php</file>
+            <file>./tests/Clientes/EdicionClienteTest.php</file>
+            <file>./tests/Clientes/ValidacionClienteTest.php</file>
+            <file>./tests/Clientes/EdicionLibroTest.php</file>
+            <file>./tests/Clientes/EstadoLibroTest</file>
+            <file>./tests/Clientes/RegistroLibroTest.php</file>
         </testsuite>
     </testsuites>
+
+    <!-- Configuración adicional si es necesario -->
+    <php>
+        <!-- Variables de entorno si las necesitas -->
+        <env name="APP_ENV" value="testing"/>
+    </php>
 </phpunit>
