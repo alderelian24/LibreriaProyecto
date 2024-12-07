@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../Config/conexion.php';
 require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
 try {
-    $primerNombre = Sanitize::cleanString($PrimerNom);
+    $primerNombre = $PrimerNom;
     $segundoNombre = Sanitize::cleanString($SegundoNom);
     $primerApellido = Sanitize::cleanString($PrimerApellido);
     $segundoApellido = Sanitize::cleanString($SegundoApellido);
