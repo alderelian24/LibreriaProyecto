@@ -26,7 +26,7 @@ $resultado = registrarCliente(
     $SegundoNom,
     $PrimerApellido,
     $SegundoApellido,
-    $cedula,
+    $cip,
     $FechaNacimiento,
     $usuario,
     $correo,
