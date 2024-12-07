@@ -1,6 +1,6 @@
 <?php
 // Incluir la clase de conexión
-include_once '../../Config/conexion.php';
+include_once '../Config/conexion.php';
 include_once '../Modelos/clase_sanitizar.php';
 
 $PrimerNom = 'Carlos';
