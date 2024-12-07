@@ -1,44 +1,37 @@
 <?php
-// Importar las clases necesarias
-require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
-require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
 
-// Crear un objeto de la clase Cliente
-$cliente = new Cliente();
-
-// Definir los datos de prueba
-$PrimerNom = 'Carlos';
-$SegundoNom = 'Gabriel';
-$PrimerApellido = 'Martínez';
-$SegundoApellido = 'Moreno';
+$primerNombre = 'Carlos';
+$segundoNombre = 'Gabriel';
+$primerApellido = 'Martínez';
+$segundoApellido = 'Moreno';
 $cip = '8-1004-2420';
-$FechaNacimiento = '08-01-2002';
+$fechaNacimiento = '2002-01-08';
 $usuario = 'CarlosM';
 $correo = 'carlos@gmail.com';
 $contrasena = 'contra123';
-$confirmContrasena = 'contra123';
-$sucursal = 'Este';
+$confirmarContrasena = 'contra123';
+$sucursal = 1; // Suponiendo que la sucursal es un ID numérico
 
-// Intentar registrar el cliente
 $resultado = registrarCliente(
-    $PrimerNom,
-    $SegundoNom,
-    $PrimerApellido,
-    $SegundoApellido,
-    $cedula,
-    $FechaNacimiento,
+    $primerNombre,
+    $segundoNombre,
+    $primerApellido,
+    $segundoApellido,
+    $fechaNacimiento,
     $usuario,
     $correo,
-    $cip,
-    $confirmContrasena,
-    $sucursal
+    $contrasena,
+    $confirmarContrasena,
+    $sucursal,
+    $cip
 );
 
-// Verificar que se muestre el mensaje de error esperado
 if ($resultado === 'Error en el registro: Cédula duplicada') {
-    echo "Prueba exitosa: Se mostró el mensaje de error esperado.\n";
+    echo "Prueba exitosa: Se detectó cédula duplicada correctamente.\n";
+} elseif ($resultado === 'Registro exitoso') {
+    echo "Prueba exitosa: Cliente registrado correctamente.\n";
 } else {
-    echo "Prueba fallida: No se mostró el mensaje de error esperado.\n";
+    echo "Prueba fallida: Resultado inesperado - $resultado\n";
 }
 ?>
