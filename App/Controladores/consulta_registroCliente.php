@@ -1,7 +1,7 @@
 <?php
 // Incluir la clase de conexión
 require_once __DIR__ . '/../../Config/conexion.php';
-require_once __DIR__ . '../App/Modelos/clase_sanitizar.php';
+require_once __DIR__ . '../Modelos/clase_sanitizar.php';
 
 $PrimerNom = 'Carlos';
 $SegundoNom = 'Gabriel';
