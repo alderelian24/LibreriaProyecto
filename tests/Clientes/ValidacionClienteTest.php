@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
+require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
+
 
 $primerNombre = 'Carlos';
 $segundoNombre = 'Gabriel';
