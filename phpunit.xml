@@ -1,14 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php" colors="true">
+<phpunit bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Proyecto Librería Tests">
-            <directory>tests</directory>
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory> <!-- Asegúrate de que esté apuntando a la carpeta correcta -->
         </testsuite>
     </testsuites>
-    <php>
-        <env name="DB_HOST" value="127.0.0.1"/>
-        <env name="DB_NAME" value="prueba_bd"/>
-        <env name="DB_USER" value="adminysql"/>
-        <env name="DB_PASS" value="admin"/>
-    </php>
 </phpunit>
