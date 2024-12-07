@@ -64,4 +64,4 @@ jobs:
 
       # 6. Ejecutar pruebas
       - name: Run Tests
-        run: ./vendor/bin/phpunit.bat --configuration phpunit.xml
+        run: ./vendor/bin/phpunit --configuration phpunit.xml
