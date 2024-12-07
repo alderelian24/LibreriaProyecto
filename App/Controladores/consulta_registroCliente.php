@@ -46,7 +46,13 @@ try {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     // Ejecutar la consulta con parámetros usando una consulta preparada
-    $db->executePreparedStatement($query, "sssssssiss", $cip, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $fechaNacimiento, $usuario, $sucursal, $correo, $contrasenaHash);
+    $result = $db->executePreparedStatement($query, "sssssssiss", $cip, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $fechaNacimiento, $usuario, $sucursal, $correo, $contrasenaHash);
+
+    // Verificar si hubo un error de cédula duplicada
+    if ($result === false) {
+        echo "Error en el registro: Cédula duplicada";
+        exit;
+    }
 
     // Redirigir a index.php después de un registro exitoso
     header("Location: ../../Public/index.php");
