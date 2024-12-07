@@ -6,27 +6,27 @@ class Cliente {
         $this->dbHandler = $dbHandler;
     }
 
-    public function registrarCliente($datosCliente) {
+    public function registrarCliente($cliente) {
         try {
             $query = "INSERT INTO clientes 
                       (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cip, fecha_nacimiento, usuario, correo, contraseña, sucursal_id)
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-            $hashedPassword = password_hash($datosCliente['contrasena'], PASSWORD_DEFAULT);
+            $hashedPassword = password_hash($cliente['contrasena'], PASSWORD_DEFAULT);
     
             $this->dbHandler->executePreparedStatement(
                 $query,
                 'sssssssssi',
-                $datosCliente['primer_nombre'],
-                $datosCliente['segundo_nombre'],
-                $datosCliente['primer_apellido'],
-                $datosCliente['segundo_apellido'],
-                $datosCliente['cedula'],
-                $datosCliente['fecha_nacimiento'],
-                $datosCliente['usuario'],
-                $datosCliente['correo'],
+                $cliente['primer_nombre'],
+                $cliente['segundo_nombre'],
+                $cliente['primer_apellido'],
+                $cliente['segundo_apellido'],
+                $cliente['cedula'],
+                $cliente['fecha_nacimiento'],
+                $cliente['usuario'],
+                $cliente['correo'],
                 $hashedPassword,
-                $datosCliente['sucursal']
+                $cliente['sucursal']
             );
             
             return true; // Registro exitoso
