@@ -9,12 +9,12 @@ $cliente = new Cliente();
 
 //Definir los datos del cliente
 
-$nombre1 = 'Carlos';
-$nombre2 = 'Gabriel';
-$apellido1 = 'Martínez';
-$apellido2 = 'Moreno';
-$cedula = '8-1004-2420';
-$fechaNacimiento = '2002-01-08';
+$PrimerNom = 'Carlos';
+$SegundoNom = 'Gabriel';
+$PrimerApellido = 'Martínez';
+$SegundoApellido = 'Moreno';
+$cip = '8-1004-2420';
+$FechaNacimiento = '08-01-2002';
 $usuario = 'CarlosM';
 $correo = 'carlos@gmail.com';
 $contrasena = 'contra123';
@@ -22,12 +22,12 @@ $confirmContrasena = 'contra123';
 $sucursal = 'Este';
 
 $resultado = registrarCliente(
-    $nombre1,
-    $nombre2,
-    $apellido1,
-    $apellido2,
-    $cedula,
-    $fechaNacimiento,
+    $PrimerNom,
+    $SegundoNom,
+    $PrimerApellido,
+    $SegundoApellido,
+    $cip,
+    $FechaNacimiento,
     $usuario,
     $correo,
     $contrasena,

@@ -4,10 +4,15 @@ require_once __DIR__ . '/../../Config/conexion.php';
 require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
 try {
-    $primerNombre = Sanitize::cleanString($_POST['PrimerNom']);
-    $segundoNombre = Sanitize::cleanString($_POST['SegundoNom']);
-    $primerApellido = Sanitize::cleanString($_POST['PrimerApellido']);
-    $segundoApellido = Sanitize::cleanString($_POST['SegundoApellido']);
+    $cip = ($cip);
+    if (!$cip) {
+        die("La cédula no es válida.");
+}
+
+    $primerNombre = Sanitize::cleanString($PrimerNom);
+    $segundoNombre = Sanitize::cleanString($segundoNombre);
+    $primerApellido = Sanitize::cleanString($primerApellido);
+    $segundoApellido = Sanitize::cleanString($segundoApellido);
     
     $fechaNacimiento = $_POST['FechaNacimiento'];
     if (!Sanitize::validateDate($fechaNacimiento)) {
