@@ -30,7 +30,7 @@ $resultado = registrarCliente(
     $FechaNacimiento,
     $usuario,
     $correo,
-    $cip,
+    $contrasena,
     $confirmContrasena,
     $sucursal
 );

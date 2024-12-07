@@ -3,8 +3,20 @@
 require_once __DIR__ . '/../../Config/conexion.php';
 require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
+$PrimerNom = 'Carlos';
+$SegundoNom = 'Gabriel';
+$PrimerApellido = 'Martínez';
+$SegundoApellido = 'Moreno';
+$cip = '8-1004-2420';
+$FechaNacimiento = '08-01-2002';
+$usuario = 'CarlosM';
+$correo = 'carlos@gmail.com';
+$contrasena = 'contra123';
+$confirmContrasena = 'contra123';
+$sucursal = 'Este';
+
 try {
-    $primerNombre = $PrimerNom;
+    $primerNombre = Sanitize::cleanString($PrimerNom);
     $segundoNombre = Sanitize::cleanString($SegundoNom);
     $primerApellido = Sanitize::cleanString($PrimerApellido);
     $segundoApellido = Sanitize::cleanString($SegundoApellido);
