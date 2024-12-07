@@ -1,5 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
+require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
 
 class EstadoLibroTest extends TestCase
 {

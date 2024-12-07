@@ -107,13 +107,13 @@ class ClaseInventario {
 
     //FIN DE LA CREACION DE LA IMAGEN MINIATURA E INICIO PARA GUARDAR LIBRO 
 
-
+    const STOCK_UMBRAL_BAJO = 10;
     public function registrarLibroCompleto($datosLibro, $sucursalId, $archivoImagen) {
         $rutaBase = "../../Public/Imagenes/nuevo_autor/";
         $nombreOriginal = $archivoImagen['name'];
         $formatoImagen = pathinfo($nombreOriginal, PATHINFO_EXTENSION);
         $formatosPermitidos = ['jpg', 'jpeg', 'png', 'gif'];
-    
+        
         // Validar formato de imagen
         if (!in_array(strtolower($formatoImagen), $formatosPermitidos)) {
             throw new Exception("El formato de la imagen no es válido. Formatos permitidos: JPG, JPEG, PNG, GIF.");
@@ -163,11 +163,12 @@ class ClaseInventario {
         $idLibro = $this->db->getConnection()->insert_id;
     
         // Registrar el inventario
+        $estado = ($datosLibro['cantidad_disponible'] < self::STOCK_UMBRAL_BAJO) ? 'Bajo' : 'Normal';
         $queryInventario = "INSERT INTO inventario (id_libro, sucursal_id, cantidad_disponible, estado) VALUES (?, ?, ?, ?)";
         $this->db->executePreparedStatement(
             $queryInventario,
             'iiis',
-            $idLibro, $sucursalId, $datosLibro['cantidad_disponible'], 'Normal'
+            $idLibro, $sucursalId, $datosLibro['cantidad_disponible'], $estado
         );
     
         return true;
