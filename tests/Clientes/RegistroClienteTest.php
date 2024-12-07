@@ -1,5 +1,8 @@
 <?php
+namespace Tests\Clientes;
+
 use PHPUnit\Framework\TestCase;
+use App\Modelos\Cliente;
 
 class RegistroClienteTest extends TestCase
 {
