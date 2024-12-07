@@ -1,4 +1,5 @@
 <?php
+require_once(LibreriaProyecto/App/Modelos/clase_cliente.php);
 namespace Tests\Clientes;
 
 use PHPUnit\Framework\TestCase;
