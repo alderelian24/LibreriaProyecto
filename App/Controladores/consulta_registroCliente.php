@@ -4,10 +4,6 @@ require_once __DIR__ . '/../../Config/conexion.php';
 require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
 try {
-    $cip = $cip;
-    if (!$cip) {
-        die("La cédula no es válida.");
-}
 
     $primerNombre = Sanitize::cleanString($PrimerNom);
     $segundoNombre = Sanitize::cleanString($segundoNombre);
