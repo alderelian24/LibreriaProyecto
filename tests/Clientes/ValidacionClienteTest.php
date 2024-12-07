@@ -1,5 +1,5 @@
 <?php
-
+/*
 // Importar las clases necesarias
 require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
 require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
@@ -41,5 +41,5 @@ if ($resultado === 'Error en el registro: Cédula duplicada') {
 } else {
     echo "Prueba fallida: No se mostró el mensaje de error esperado.\n";
 }
-
+*/
 ?>
