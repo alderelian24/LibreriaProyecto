@@ -1,7 +1,7 @@
 <?php
 // Incluir la clase de conexión
-include_once '../../Config/conexion.php';
-include_once '../Modelos/clase_sanitizar.php';
+require_once __DIR__ . '/../../Config/conexion.php';
+require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
 try {
     // Limpiar y validar datos del formulario
