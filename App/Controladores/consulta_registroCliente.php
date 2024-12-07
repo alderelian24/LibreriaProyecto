@@ -4,12 +4,6 @@ require_once __DIR__ . '/../../Config/conexion.php';
 require_once __DIR__ . '/../../App/Modelos/clase_sanitizar.php';
 
 try {
-    // Limpiar y validar datos del formulario
-    $cip = ($_POST['cedula']);
-    if (!$cip) {
-        die("La cédula no es válida.");
-    }
-
     $primerNombre = Sanitize::cleanString($_POST['PrimerNom']);
     $segundoNombre = Sanitize::cleanString($_POST['SegundoNom']);
     $primerApellido = Sanitize::cleanString($_POST['PrimerApellido']);
