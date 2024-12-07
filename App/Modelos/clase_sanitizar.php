@@ -12,7 +12,7 @@ class Sanitize {
     
     // Valida una fecha (YYYY-MM-DD)
     public static function validateDate($date) {
-        $format = 'Y-m-d';
+        $format = 'm-d-Y';
         $d = DateTime::createFromFormat($format, $date);
         return $d && $d->format($format) === $date;
     }
