@@ -82,10 +82,11 @@
                         <div class="input-container-Form" data-tipo="Sucursal">
                             <label class="input-label" for="sucursal">Sucursal:</label>
                             <select name="sucursal" id="sucursal" required>
-                            <option value="1"<?php echo isset($stmt['sucursal_id']) && $stmt['sucursal_id'] ==1 ?'selected': ''; ?>>Central</option>
-                            <option value="2"<?php echo isset($stmt['sucursal_id']) && $stmt['sucursal_id'] ==2 ?'selected': ''; ?>>Este</option>
-                        </select>
+                                <option value="1">Central</option>
+                                <option value="2">Este</option>
+                            </select>
                         </div>
+
                         
                         <button id="buttons" type="submit">Registrarse</button>
                     </form>

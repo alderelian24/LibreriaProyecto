@@ -39,20 +39,23 @@ try {
     // Encriptar la contraseña
     $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Conexión a la base de datos
-    $db = new connect();
-    $query = "INSERT INTO clientes 
-        (cip, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, fecha_nacimiento, usuario, sucursal_id, correo, contraseña)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
-    // Ejecutar la consulta con parámetros usando una consulta preparada
-    $result = $db->executePreparedStatement($query, "sssssssiss", $cip, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $fechaNacimiento, $usuario, $sucursal, $correo, $contrasenaHash);
+        // Obtener el valor de la sucursal seleccionada
+        $sucursal = $_POST['sucursal'];
 
-    // Verificar si hubo un error de cédula duplicada
-    if ($result === false) {
-        echo "Error en el registro: Cédula duplicada";
-        exit;
-    }
+        // Conexión a la base de datos
+        $db = new connect();
+        $query = "INSERT INTO clientes 
+            (cip, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, fecha_nacimiento, usuario, sucursal_id, correo, contraseña)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        // Ejecutar la consulta con parámetros usando una consulta preparada
+        $result = $db->executePreparedStatement($query, "sssssssiss", $cip, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $fechaNacimiento, $usuario, $sucursal, $correo, $contrasenaHash);
+    
+        // Verificar si hubo un error de cédula duplicada
+        if ($result === false) {
+            echo "Error en el registro: Cédula duplicada";
+            exit;
+        }
 
     // Redirigir a index.php después de un registro exitoso
     header("Location: ../../Public/index.php");

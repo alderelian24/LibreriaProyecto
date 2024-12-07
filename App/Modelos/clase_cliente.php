@@ -36,7 +36,6 @@ class Cliente {
         }
     }
     
-
     public function verificarCredenciales($nombreUsuario, $clave) {
         try {
             $query = "SELECT id_cliente, contraseña FROM clientes WHERE usuario = ?";
