@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
-
 use PHPUnit\Framework\TestCase;
-use App\Modelos\Cliente;
+
+require_once __DIR__ . '/../../App/Modelos/clase_cliente.php';
+require_once __DIR__ . '/../../App/Controladores/consulta_registroCliente.php';
 
 class RegistroClienteTest extends TestCase
 {
