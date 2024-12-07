@@ -12,7 +12,7 @@ $nombre1 = 'Carlos';
 $nombre2 = 'Gabriel';
 $apellido1 = 'Martínez';
 $apellido2 = 'Moreno';
-$cedula = '8-1004-2420';
+$cip = '8-1004-2420';
 $fechaNacimiento = '2002-01-08';
 $usuario = 'CarlosM';
 $correo = 'carlos@gmail.com';
@@ -30,7 +30,7 @@ $resultado = registrarCliente(
     $fechaNacimiento,
     $usuario,
     $correo,
-    $contrasena,
+    $cip,
     $confirmContrasena,
     $sucursal
 );
